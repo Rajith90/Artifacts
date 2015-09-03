@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-transportservice+xml" shortName="transportservice" singularLabel="Transport Service" pluralLabel="Transport Services" hasNamespace="false" iconSet="7">
+    <storagePath>/trunk/transportservices/@{overview_name}</storagePath>
+    <nameAttribute>overview_name</nameAttribute>
+    
+    <ui>
+        <list>
+            <column name="Name">
+                <data type="path" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Contact">
+                <data type="text" value="overview_contact_no"/>
+            </column>
+        </list>
+    </ui>
+    <relationships>
+		<association type="vehicle" target="@{vehicles_model}"/>
+    	</relationships>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name>Name</name>
+            </field>
+            <field type="text" required="true">
+                <name>Contact No</name>
+            </field>
+            <field type="text">
+                <name>Owner Name</name>
+            </field>
+            <field type="text-area">
+                <name>Description</name>
+            </field>
+        </table>
+        
+    
+        <table name="Vehicles" columns="3" maxoccurs="unbounded">
+            <subheading>
+                <heading>Vehicle Type</heading>
+                <heading>Rate per km</heading>
+                <heading>Vehcle No</heading>
+            </subheading>
+            <field type="text" path="true">
+                <name label="Model">Model</name>
+            </field>
+            <field type="text">
+                <name label="Rate">rate</name>
+            </field>
+            <field type="text">
+                <name label="No">no</name>
+            </field>
+        </table>
+    </content>
+
+</artifactType>
+

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-product+xml" shortName="product" singularLabel="Product" pluralLabel="Products"
+              hasNamespace="true" iconSet="20">
+    <storagePath>/product/@{overview_name}/@{overview_version}</storagePath>
+    <nameAttribute>overview_name</nameAttribute>
+    <namespaceAttribute>overview_namespace</namespaceAttribute>
+    
+    <ui>
+        <list>
+            <column name="Product Name">
+                <data type="text" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Product Version">
+                <data type="path" value="overview_version" />
+            </column>
+            <column name="Namespace">
+                <data type="text" value="overview_namespace"/>
+            </column>
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="Product Name">Name</name>
+            </field>
+            <field type="text" required="true">
+                <name label="Product Version">Version</name>
+            </field>
+	    <field type="text" required="true">
+                <name label="Product Namespace">Namespace</name>
+            </field>
+        </table>
+        
+        <table name="Team Information">
+            <field type="text" path="true" startsWith="/_system/governance/employees/">
+                <name label="Team Lead">Lead</name>
+            </field>
+            <field type="text" path="true" startsWith="/_system/governance/employees/">
+                <name label="Director">Director</name>
+            </field>
+	    <field type="text">
+		<name label="No of Team Members">Members</name>
+	    </field>
+	</table> 
+        <table name="Team members" columns="3" maxoccurs="unbounded">
+            <subheading>
+                <heading>Name</heading>
+                <heading>ID</heading>
+                <heading>Position</heading>
+            </subheading>
+            <field type="text">
+                <name label="Name">Name</name>
+            </field>
+            <field type="text" >
+                <name label="ID">ID</name>
+            </field>
+            <field type="options">
+                <name label="Position">Position</name>
+                <values>
+                    <value>Director</value>
+                    <value>Senior Architect</value>
+                    <value>Architect</value>
+                    <value>Technical Lead</value>
+                    <value>Senior Software Engineer</value>
+                    <value>Software Engineer</value>
+                    <value>Assistant Software Engineer</value>
+                </values>
+            </field>           
+        </table>
+
+	 <table name="Service Lifecycle">
+        <field type="options">
+            <name label="Lifecycle Name">Lifecycle Name</name>
+            <values class="org.wso2.carbon.governance.services.ui.utils.LifecycleListPopulator">
+        </values></field>
+    </table>
+        
+    </content>
+</artifactType>
+
+

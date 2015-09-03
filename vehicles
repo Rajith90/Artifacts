@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-vehicle+xml" shortName="vehicle" singularLabel="Vehicle" pluralLabel="Vehicles" hasNamespace="false" iconSet="7">
+    <storagePath>/vehicles/details/@{overview_model}</storagePath>
+    <nameAttribute>overview_model</nameAttribute>
+    
+    <ui>
+        <list>
+            <column name="Name">
+                <data type="path" value="overview_model" href="@{storagePath}"/>
+            </column>
+            <column name="Company">
+                <data type="text" value="overview_company"/>
+            </column>
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name>Model</name>
+            </field>
+             <field type="options" required="true">
+                <name label="Company">Company</name>
+                <values>
+                    <value>Toyota</value>
+                    <value>Nissan</value>
+                    <value>BMW</value>
+                    <value>Mercedez</value>
+                    <value>Mazda</value>
+                    <value>KIA</value>
+                    <value>Hyundai</value>
+                </values>
+            </field>
+            <field type="text" tooltip="Shoulb in the form of ABC1234 or AB1234" validate="^(([A-Z][A-Z]|[A-Z][A-Z][A-Z])[0-9][0-9][0-9][0-9])$">
+                <name>Registered No</name>
+            </field>
+            <field type="text-area">
+                <name>Description</name>
+            </field>
+        </table>
+        
+        
+        <table name="Additional Information">
+            <field type="text">
+                <name label="Manufactured Year">Year</name>
+            </field>
+            <field type="options">
+                <name label="Manufactured Country">Country</name>
+                <values>
+                    <value>Japan</value>
+                    <value>USA</value>
+		    <value>China</value>
+                    <value>Korea</value>
+		    <value>Germany</value>
+                    <value>India</value>
+		    <value>Other</value>
+                </values>
+            </field>
+	    <field type="text">
+		<name label="Model No">Model</name>
+	    </field>
+            <field type="options">
+                <name label="Transmission">Transmission</name>
+                <values>
+                    <value>Auto</value>
+                    <value>manual</value>
+                </values>
+            </field>
+	</table> 
+    </content>
+
+</artifactType>
+

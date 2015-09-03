@@ -1,0 +1,67 @@
+<artifactType type="application/vnd.wso2-client-detail+xml" shortName="client" singularLabel="Client" pluralLabel="Clients"
+              hasNamespace="false" iconSet="30">
+    <storagePath>/clients/details/@{overview_id}/@{overview_name}</storagePath>
+    
+    <ui>
+        <list>
+            <column name="Client Name">
+                <data type="path" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Client ID">
+                <data type="text" value="overview_id" />
+            </column>
+            
+        </list>
+    </ui>
+    <relationships>
+        <association type="employee" target="@{overview_employee}"/>
+    </relationships>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="Name">Name</name>
+            </field>
+            <field type="text" required="true">
+                <name label="ID">ID</name>
+            </field>
+	    <field type="text" path="true" startsWith="/_system/governance/employees/details">
+		<name label="Employee">Employee</name>
+	    </field>
+        </table>
+        
+        <table name="Additional Information">
+            <field type="text-area">
+                <name label="Address">Address</name>
+            </field>
+	    <field type="text">
+		<name label="Contact">Contact No</name>
+	    </field>
+	    
+            
+	</table> 
+        <table name="Products Interested" columns="1" maxoccurs="unbounded">
+            <subheading>
+                <heading>Products</heading>
+               
+            </subheading>
+            <field type="options" >
+                <name label="Team">Team</name>
+                <values>
+                    <value>G-Reg</value>
+                    <value>ESB</value>
+                    <value>BAM</value>
+                    <value>MB</value>
+                    <value>BPS</value>
+                    <value>CARBON</value>
+                    <value>IS</value>
+		    <value>API-Manager</value>
+		    <value>ES</value>
+                </values>
+            </field>
+            
+        </table>
+        
+    </content>
+</artifactType>
+
+

@@ -1,0 +1,53 @@
+<artifactType type="application/vnd.wso2-vehicle-order+xml" shortName="vehicleorder" singularLabel="Order Vehicle" pluralLabel="Ordered Vehicles"
+              hasNamespace="false" iconSet="26">
+    <storagePath>/vehicle_orders/details/@{overview_id}/@{overview_name}</storagePath>
+    
+    <ui>
+        <list>
+            <column name="Client Name">
+                <data type="path" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Order No">
+                <data type="text" value="overview_id" />
+            </column>
+            
+        </list>
+    </ui>
+    <relationships>
+        <association type="vehicle_information" target="@{vehicle_information_company}"/>
+    </relationships>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="Name">Name</name>
+            </field>
+            <field type="text" required="true">
+                <name label="Order No">ID</name>
+            </field>
+	    <field type="text" required="true">
+		<name label="Contact No">Contact</name>
+	    </field>
+        </table>
+        
+        <table name="Vehicle Information">
+            <field type="text" path="true">
+                <name label="Vehicle">Vehicle</name>
+            </field>
+	    <field type="text" path="true">
+                <name label="Company">Company</name>
+            </field>	    
+            
+	</table> 
+       <table name="Address Information">
+            <field type="text" required="true">
+                <name label="Customer Address">CustomerAddress</name>
+            </field>
+	    <field type="text">
+                <name label="Destination Address">Destination</name>
+            </field>	    
+            
+	</table>  
+    </content>
+</artifactType>
+
+

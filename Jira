@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-jira+xml" shortName="jira" singularLabel="Jira" pluralLabel="Jiras"
+              hasNamespace="false" iconSet="19">
+    <storagePath>/jira/details/@{overview_id}</storagePath>
+    
+    <ui>
+        <list>
+            <column name="Jira ID">
+                <data type="text" value="overview_id" href="@{storagePath}"/>
+            </column>
+            <column name="Reporter">
+                <data type="path" value="overview_reporter" />
+            </column>
+            <column name="Assignee">
+                <data type="text" value="overview_assignee"/>
+            </column>
+        </list>
+    </ui>
+    <relationships>
+        <association type="product" target="@{information_product}"/>
+    </relationships>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="ID">ID</name>
+            </field>
+            <field type="text" required="true">
+                <name label="Reporter">Reporter</name>
+            </field>
+	    <field type="text" required="true">
+                <name label="Assignee">Assignee</name>
+            </field>
+        </table>
+        
+        <table name="Information">
+            <field type="text" required="true">
+                <name label="Summary">Summary</name>
+            </field>
+             <field type="options" required="true">
+                <name label="Product">Product</name>
+                <values>
+                    <value>G-Reg</value>
+                    <value>ESB</value>
+                    <value>BAM</value>
+                    <value>MB</value>
+                    <value>BPS</value>
+                    <value>CARBON</value>
+                    <value>IS</value>
+		    <value>Documentation</value>
+                </values>
+            </field>
+	    <field type="options">
+                <name label="Type">Type</name>
+                <values>
+                    <value>Bug</value>
+                    <value>Improvement</value>
+                    <value>Feature</value>
+                </values>
+            </field>
+	    <field type="text-area">
+		<name label="Description">Description</name>
+	    </field>
+         </table>
+
+         <table name="Status">
+            <field type="text" >
+                <name label="Fix version">Version</name>
+            </field>
+             <field type="options" >
+                <name label="Status">Status</name>
+                <values>
+                    <value>Fixed</value>
+                    <value>In-Progress</value>
+                    <value>Close</value>
+                    <value>Open</value>
+                </values>
+            </field>
+	    <field type="text" path="true">
+		<name label="Commits">Commits</name>
+	    </field>
+        </table>
+    </content>
+</artifactType>
+
+
