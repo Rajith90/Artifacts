@@ -1,0 +1,31 @@
+<artifactType type="application/vnd.stockquote+xml" shortName="stockquote" singularLabel="Stock Quote" pluralLabel="Stock Quotes"
+              hasNamespace="false" iconSet="17">
+    <storagePath>/quotes/@{overview_id}</storagePath>
+    
+    <ui>
+        <list>
+            <column name="Quotation ID">
+                <data type="text" value="overview_id" href="@{storagePath}"/>
+            </column>          
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="Customer Name">Customer Name</name>
+            </field>
+            <field type="text" required="true">
+                <name label="ID">ID</name>
+            </field>
+                       
+        </table>
+     	<table name="Items" columns="2"  maxoccurs="unbounded">
+	    <field type="text" path="true" startsWith="/_system/governance/items">
+		<name label="Name">Name</name>
+	    </field>
+	    <field type="text" >
+		<name label="Quantity">Quantity</name>
+	    </field>
+	</table>
+   </content>
+</artifactType>

@@ -1,0 +1,48 @@
+<artifactType type="application/vnd.item+xml" shortName="item" singularLabel="Item" pluralLabel="Items"
+              hasNamespace="false" iconSet="18">
+    <storagePath>/items/@{overview_name}</storagePath>
+    
+    <ui>
+        <list>
+            <column name="Item Name">
+                <data type="text" value="overview_name" href="@{storagePath}"/>
+            </column>
+            <column name="Item ID">
+                <data type="path" value="overview_id"/>
+            </column>
+            <column name="Quantity">
+                <data type="text" value="overview_quantity"/>
+            </column>
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="Name">Name</name>
+            </field>
+            <field type="text" required="true">
+                <name label="ID">ID</name>
+            </field>
+            <field type="text" required="true" validate="^([0-9]*)$" tooltip="Should be an integer">
+                <name label="Quantity">Quantity</name>               
+            </field>            
+        </table>
+     	<table name="Additional Information">
+            <field type="text">
+                <name label="Manufacturer">Manufacturer</name>
+            </field>         
+	    <field type="text">
+		<name label="Address">Address</name>
+	    </field>
+	    <field type="text">
+		<name label="Contact">Contact No</name>
+	    </field>
+            <field type="date">
+ 		<name>Manufactured Date</name>
+	    </field>
+	    <field type="date">
+ 		<name>Expiration Date</name>
+	    </field>
+	</table> 
+   </content>
+</artifactType>

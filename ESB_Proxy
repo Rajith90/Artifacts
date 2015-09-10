@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.proxy+xml"  shortName="esbproxy" singularLabel="ESB Proxy" pluralLabel="ESB Proxies" hasNamespace="false" iconSet="19">
+    <storagePath>trunk/ESB/Proxies/@{overview_name}</storagePath>
+    <namespaceAttribute>overview_namespace</namespaceAttribute>
+
+    <ui>
+        <list>
+            <column name="Proxy Name">
+                <data type="text" value="overview_name"/>
+            </column>
+            <column name="Proxy Version">
+                <data type="path" value="overview_version" href="@{storagePath}"/>
+            </column>
+            <column name="Proxy Namespace">
+                <data type="text" value="overview_namespace"/>
+            </column>
+	    <column name="Proxy Type">
+                <data type="text" value="overview_type"/>
+            </column>
+        </list>
+    </ui>
+	<relationships>
+        <association type="endpoints" target="@{endpoints_endpoint}"/>
+    </relationships>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true" >
+                <name label="Name">Name</name>
+            </field>
+            <field type="text" required="true" >
+                <name label="Namespace">Namespace</name>
+            </field>
+            <field type="text" required="true">
+                <name label="Version">Version</name>
+            </field>
+            <field type="options" required="true">
+                <name label="Type">Type</name>
+                <values>
+                    <value>Pass Through Proxy</value>
+                    <value>Secure Proxy</value>
+                    <value>WSDL Based Proxy</value>
+                    <value>Logging Proxy</value>
+                    <value>Transformer Proxy</value>
+                    <value>Custom Proxy</value>
+                </values>
+            </field>
+            <field type="text-area">
+                <name label="Description">Description</name>
+            </field>
+        </table>
+	<table name="WSDL Options" >
+            <field type="text-area">
+                <name label="Specify Inline">Specify Inline</name>
+            </field>
+            <field type="text" url="true">
+                <name label="Specify Source URL">Specify Source URL</name>
+            </field>
+            <field type="text" path="true" startsWith="/_system/governance/trunk/wsdls">
+                <name label="Select from Registry">Select from Registry</name>
+            </field>            
+        </table>
+	<table name="Endpoints">
+            <subheading>
+                <heading>Environments</heading>
+                <heading>URL</heading>
+            </subheading>
+            <field type="option-text" path="true" startsWith="/_system/governance/trunk/endpoints" maxoccurs="unbounded">
+                <name label="Endpoint">Endpoint</name>
+                <values>
+                    <value>None</value>
+                    <value>Unknown</value>
+                    <value>Dev</value>
+                    <value>Test</value>
+                    <value>Stag</value>
+                    <value>Prod</value>
+                </values>
+            </field>
+        </table>
+   </content>
+</artifactType>
