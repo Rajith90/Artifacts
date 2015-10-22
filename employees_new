@@ -35,7 +35,9 @@
                     <value>IS</value>
                 </values>
             </field>
-            
+            <field type="checkbox" required="true">
+                <name label="On Probation">probation</name>
+            </field>
         </table>
         
         <table name="Additional Information">
@@ -64,6 +66,9 @@
                     <value>Assistant Software Engineer</value>
                 </values>
             </field>
+	    <field type="date">
+		    <name>Joined Date</name>
+	    </field>
 	</table> 
         <table name="Family Details" columns="3" maxoccurs="unbounded">
             <subheading>
