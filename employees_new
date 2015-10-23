@@ -35,7 +35,7 @@
                     <value>IS</value>
                 </values>
             </field>
-            <field type="checkbox" required="true">
+            <field type="checkbox" >
                 <name label="On Probation">probation</name>
             </field>
         </table>
