@@ -54,6 +54,9 @@
 	    <field type="text">
 		<name label="Contact">Contact No</name>
 	    </field>
+	    <field type="text" validate="^([2-5][0-9])?$">
+		<name label="Age">Age</name>
+	    </field>
             <field type="options">
                 <name label="Position">Position</name>
                 <values>
@@ -79,7 +82,7 @@
             <field type="text">
                 <name label="Child Name">childname</name>
             </field>
-            <field type="text" validate="^([0-9]|[0-1][0-8])$">
+            <field type="text" validate="^([0-9]|[0-1][0-8])?$">
                 <name label="Child Age">childage</name>
             </field>
             <field type="options">
